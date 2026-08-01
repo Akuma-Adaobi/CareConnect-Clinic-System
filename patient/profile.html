@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Profile — CareConnect</title>
+<link rel="stylesheet" href="../css/patient.css" />
+</head>
+<body>
+
+  <div class="cc-topbar">
+    <div class="cc-logo" style="font-weight:700;color:var(--cc-teal-dark);">CareConnect</div>
+    <nav>
+      <a href="profile.html" class="cc-active">Profile</a>
+      <a href="appointments.html">My Appointments</a>
+      <a href="../Appointment/book.html">Book Appointment</a>
+      <a href="medical-history.html">Medical History</a>
+      <a href="#" id="logoutLink">Log out</a>
+    </nav>
+  </div>
+
+  <div class="cc-card cc-wide">
+    <h1>My profile</h1>
+    <p class="cc-sub">Keep your contact details up to date.</p>
+
+    <svg class="cc-pulse" viewBox="0 0 300 28" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 14 H100 L112 4 L124 24 L136 14 H300" />
+    </svg>
+
+    <div id="formMessage" class="cc-message" role="status" aria-live="polite"></div>
+
+    <form id="profileForm">
+      <div class="cc-row">
+        <div class="cc-field">
+          <label for="firstName">First name</label>
+          <input type="text" id="firstName" name="firstName" maxlength="50" autocomplete="given-name" required />
+        </div>
+        <div class="cc-field">
+          <label for="lastName">Last name</label>
+          <input type="text" id="lastName" name="lastName" maxlength="50" autocomplete="family-name" required />
+        </div>
+      </div>
+
+      <div class="cc-field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" autocomplete="email" disabled />
+      </div>
+
+      <div class="cc-row">
+        <div class="cc-field">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" maxlength="20" autocomplete="tel" required />
+        </div>
+        <div class="cc-field">
+          <label for="dateOfBirth">Date of birth</label>
+          <input type="date" id="dateOfBirth" name="dateOfBirth" required />
+        </div>
+      </div>
+
+      <div class="cc-field">
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="cc-field">
+        <label for="address">Address</label>
+        <textarea id="address" name="address" rows="2" maxlength="255" autocomplete="street-address"></textarea>
+      </div>
+
+      <button type="submit" class="cc-btn" id="submitBtn">Save changes</button>
+    </form>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/patient-profile.js"></script>
+</body>
+</html>

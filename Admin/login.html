@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Manager Login — CareConnect</title>
+<link rel="stylesheet" href="../css/patient.css" />
+</head>
+<body>
+
+  <div class="cc-topband">
+    <div class="cc-logo">CareConnect</div>
+    <div class="cc-tagline">Clinic manager portal</div>
+  </div>
+
+  <div class="cc-card">
+    <h1>Manager login</h1>
+    <p class="cc-sub">Manage doctors and view attendance &amp; utilization reports.</p>
+
+    <svg class="cc-pulse" viewBox="0 0 300 28" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 14 H100 L112 4 L124 24 L136 14 H300" />
+    </svg>
+
+    <div id="formMessage" class="cc-message" role="status" aria-live="polite"></div>
+
+    <form id="adminLoginForm">
+      <div class="cc-field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" autocomplete="username" required />
+      </div>
+
+      <div class="cc-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required />
+      </div>
+
+      <button type="submit" class="cc-btn" id="submitBtn" data-label="Log in">Log in</button>
+    </form>
+
+    <p class="cc-alt"><a href="../Doctor/login.html">Doctor login</a> · <a href="../patient/login.html">Patient login</a></p>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/admin-auth.js"></script>
+</body>
+</html>

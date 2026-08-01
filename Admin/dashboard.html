@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Manager Dashboard — CareConnect</title>
+<link rel="stylesheet" href="../css/patient.css" />
+</head>
+<body>
+
+  <div class="cc-topbar">
+    <div class="cc-logo" style="font-weight:700;color:var(--cc-teal-dark);">CareConnect</div>
+    <nav>
+      <a href="#" id="logoutLink">Log out</a>
+    </nav>
+  </div>
+
+  <div class="cc-card cc-wide">
+    <h1>Clinic manager dashboard</h1>
+    <p class="cc-sub">Doctors on staff, plus attendance &amp; utilization reporting.</p>
+
+    <svg class="cc-pulse" viewBox="0 0 300 28" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 14 H100 L112 4 L124 24 L136 14 H300" />
+    </svg>
+
+    <div id="formMessage" class="cc-message" role="status" aria-live="polite"></div>
+
+    <div class="cc-tabs">
+      <button class="cc-tab-btn cc-active" data-tab="doctors">Doctors</button>
+      <button class="cc-tab-btn" data-tab="reports">Reports</button>
+    </div>
+
+    <!-- Doctors tab -->
+    <div class="cc-tab-panel" id="tab-doctors">
+      <h1 style="font-size:1.1rem;">Add a doctor</h1>
+      <form id="addDoctorForm">
+        <div class="cc-row">
+          <div class="cc-field">
+            <label for="docFirstName">First name</label>
+            <input type="text" id="docFirstName" maxlength="50" autocomplete="given-name" required />
+          </div>
+          <div class="cc-field">
+            <label for="docLastName">Last name</label>
+            <input type="text" id="docLastName" maxlength="50" autocomplete="family-name" required />
+          </div>
+        </div>
+        <div class="cc-row">
+          <div class="cc-field">
+            <label for="docEmail">Email</label>
+            <input type="email" id="docEmail" maxlength="100" autocomplete="email" required />
+          </div>
+          <div class="cc-field">
+            <label for="docPhone">Phone</label>
+            <input type="tel" id="docPhone" maxlength="20" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="cc-row">
+          <div class="cc-field">
+            <label for="docSpecialty">Specialty</label>
+            <input type="text" id="docSpecialty" maxlength="50" placeholder="e.g. Cardiology" />
+          </div>
+          <div class="cc-field">
+            <label for="docPassword">Temporary password</label>
+            <input type="password" id="docPassword" minlength="8" autocomplete="new-password" required />
+          </div>
+        </div>
+        <button type="submit" class="cc-btn" id="addDoctorBtn" data-label="Add doctor">Add doctor</button>
+      </form>
+
+      <h1 style="font-size:1.1rem; margin-top:28px;">Current doctors</h1>
+      <div id="doctorListWrap"><p class="cc-sub">Loading…</p></div>
+    </div>
+
+    <!-- Reports tab -->
+    <div class="cc-tab-panel cc-hidden" id="tab-reports">
+      <div class="cc-row">
+        <div class="cc-field">
+          <label for="fromDate">From</label>
+          <input type="date" id="fromDate" />
+        </div>
+        <div class="cc-field">
+          <label for="toDate">To</label>
+          <input type="date" id="toDate" />
+        </div>
+      </div>
+      <button type="button" class="cc-btn cc-btn-secondary" id="refreshReportBtn" style="width:auto; padding:9px 16px; margin-bottom:16px;">Refresh</button>
+
+      <div class="cc-kpi-row">
+        <div class="cc-kpi-card"><div class="cc-kpi-value" id="kpiScheduled">-</div><div class="cc-kpi-label">Scheduled</div></div>
+        <div class="cc-kpi-card"><div class="cc-kpi-value" id="kpiCompleted">-</div><div class="cc-kpi-label">Completed</div></div>
+        <div class="cc-kpi-card"><div class="cc-kpi-value" id="kpiCancelled">-</div><div class="cc-kpi-label">Cancelled</div></div>
+        <div class="cc-kpi-card"><div class="cc-kpi-value" id="kpiNoShow">-</div><div class="cc-kpi-label">No-shows</div></div>
+        <div class="cc-kpi-card"><div class="cc-kpi-value" id="kpiNoShowRate">-</div><div class="cc-kpi-label">No-show rate</div></div>
+      </div>
+
+      <h1 style="font-size:1.05rem;">Doctor utilization</h1>
+      <div id="utilizationWrap"><p class="cc-sub">Loading…</p></div>
+
+      <button type="button" class="cc-btn cc-btn-secondary" id="exportCsvBtn" style="width:auto; padding:9px 16px; margin-top:16px;">Export utilization as CSV</button>
+    </div>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/admin-dashboard.js"></script>
+</body>
+</html>

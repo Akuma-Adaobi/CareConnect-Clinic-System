@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Schedule — CareConnect</title>
+<link rel="stylesheet" href="../css/patient.css" />
+</head>
+<body>
+
+  <div class="cc-topbar">
+    <div class="cc-logo" style="font-weight:700;color:var(--cc-teal-dark);">CareConnect</div>
+    <nav>
+      <span id="doctorNameLabel" class="cc-sub" style="margin-right:8px;"></span>
+      <a href="#" id="logoutLink">Log out</a>
+    </nav>
+  </div>
+
+  <div class="cc-card cc-wide">
+    <h1 id="scheduleTitle">Today's schedule</h1>
+    <p class="cc-sub">Everything surfaced at a glance, same as the dashboard mockup.</p>
+
+    <svg class="cc-pulse" viewBox="0 0 300 28" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 14 H100 L112 4 L124 24 L136 14 H300" />
+    </svg>
+
+    <div id="formMessage" class="cc-message" role="status" aria-live="polite"></div>
+
+    <div class="cc-kpi-row">
+      <div class="cc-kpi-card"><div class="cc-kpi-value" id="kpiTotal">-</div><div class="cc-kpi-label">Appointments today</div></div>
+      <div class="cc-kpi-card"><div class="cc-kpi-value" id="kpiCompleted">-</div><div class="cc-kpi-label">Completed</div></div>
+      <div class="cc-kpi-card"><div class="cc-kpi-value" id="kpiUpcoming">-</div><div class="cc-kpi-label">Still to see</div></div>
+    </div>
+
+    <div class="cc-field" style="max-width:220px;">
+      <label for="dateFilter">Viewing schedule for</label>
+      <input type="date" id="dateFilter" />
+    </div>
+
+    <div id="scheduleWrap">
+      <p class="cc-sub">Loading schedule…</p>
+    </div>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/doctor-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+:root {
+  --cc-bg: #f4f6f8;
+  --cc-surface: #ffffff;
+  --cc-teal: #0f6e6e;
+  --cc-teal-dark: #0a4f4f;
+  --cc-blue: #2d7fb8;
+  --cc-text: #1f2937;
+  --cc-text-muted: #5f6b76;
+  --cc-border: #d8dee4;
+  --cc-error: #c0392b;
+  --cc-error-bg: #fdecea;
+  --cc-success: #1e8a5f;
+  --cc-radius: 8px;
+  --cc-shadow: 0 10px 30px rgba(15, 110, 110, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--cc-bg);
+  color: var(--cc-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 16px;
+}
+
+.cc-topband {
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cc-topband .cc-logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--cc-teal-dark);
+  letter-spacing: 0;
+}
+
+.cc-topband .cc-tagline {
+  color: var(--cc-text-muted);
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+/* Signature element: a single restrained pulse-line divider, used once per page,
+   right under the header of the card it belongs to. Ties to the clinic subject
+   without leaning on a stock heart/cross icon. */
+.cc-pulse {
+  width: 100%;
+  height: 28px;
+  margin: 10px 0 22px;
+}
+.cc-pulse path {
+  fill: none;
+  stroke: var(--cc-teal);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.55;
+}
+
+.cc-card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--cc-surface);
+  border: 1px solid var(--cc-border);
+  border-radius: var(--cc-radius);
+  box-shadow: var(--cc-shadow);
+  padding: 32px 30px;
+}
+
+.cc-card h1 {
+  font-size: 1.4rem;
+  margin: 0 0 4px;
+  color: var(--cc-teal-dark);
+}
+
+.cc-card .cc-sub {
+  color: var(--cc-text-muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.cc-field { margin-bottom: 16px; }
+
+.cc-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--cc-text);
+}
+
+.cc-row { display: flex; gap: 12px; }
+.cc-row .cc-field { flex: 1; }
+
+.cc-field input,
+.cc-field select,
+.cc-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--cc-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--cc-text);
+  background: #ffffff;
+}
+
+.cc-field input:focus,
+.cc-field select:focus,
+.cc-field textarea:focus {
+  outline: 2px solid var(--cc-blue);
+  outline-offset: 1px;
+  border-color: var(--cc-blue);
+}
+
+.cc-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--cc-teal);
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.cc-btn:hover { background: var(--cc-teal-dark); }
+.cc-btn:focus-visible { outline: 2px solid var(--cc-blue); outline-offset: 2px; }
+.cc-btn[disabled] { opacity: 0.6; cursor: not-allowed; }
+
+.cc-btn-secondary {
+  background: transparent;
+  color: var(--cc-teal-dark);
+  border: 1px solid var(--cc-border);
+}
+.cc-btn-secondary:hover { background: #f0f7f7; }
+
+.cc-alt {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: var(--cc-text-muted);
+}
+.cc-alt a { color: var(--cc-blue); text-decoration: none; font-weight: 600; }
+.cc-alt a:hover { text-decoration: underline; }
+
+.cc-message {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+  display: none;
+}
+.cc-message.cc-show { display: block; }
+.cc-message.cc-error { background: var(--cc-error-bg); color: var(--cc-error); }
+.cc-message.cc-success { background: #e8f7f0; color: var(--cc-success); }
+
+/* Profile + appointments pages */
+.cc-wide { max-width: 720px; }
+
+.cc-topbar {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.cc-topbar nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.cc-topbar nav a {
+  color: var(--cc-text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.cc-topbar nav a.cc-active { color: var(--cc-teal-dark); }
+.cc-topbar nav a:hover { color: var(--cc-teal); }
+
+table.cc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+table.cc-table th,
+table.cc-table td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--cc-border);
+}
+table.cc-table th {
+  color: var(--cc-text-muted);
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.cc-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+.cc-table-scroll table.cc-table {
+  min-width: 620px;
+}
+
+.cc-status {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.cc-status.scheduled { background: #e8f2fb; color: var(--cc-blue); }
+.cc-status.completed { background: #e8f7f0; color: var(--cc-success); }
+.cc-status.cancelled { background: var(--cc-error-bg); color: var(--cc-error); }
+
+.cc-empty {
+  text-align: center;
+  padding: 36px 12px;
+  color: var(--cc-text-muted);
+}
+.cc-empty strong { display: block; color: var(--cc-text); margin-bottom: 4px; }
+
+/* Appointment booking + row actions */
+.cc-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 8px;
+  margin: 6px 0 4px;
+}
+.cc-grid-message {
+  grid-column: 1 / -1;
+}
+
+.cc-slot-btn {
+  padding: 8px 6px;
+  border: 1px solid var(--cc-border);
+  border-radius: 8px;
+  background: #fbfdfd;
+  font-size: 0.85rem;
+  font-family: inherit;
+  color: var(--cc-text);
+  cursor: pointer;
+  text-align: center;
+}
+.cc-slot-btn:hover { border-color: var(--cc-teal); }
+.cc-slot-btn:focus-visible,
+.cc-action-btn:focus-visible,
+.cc-tab-btn:focus-visible {
+  outline: 2px solid var(--cc-blue);
+  outline-offset: 2px;
+}
+.cc-slot-btn.cc-selected {
+  background: var(--cc-teal);
+  border-color: var(--cc-teal);
+  color: #fff;
+  font-weight: 600;
+}
+
+.cc-action-btn {
+  border: none;
+  background: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.cc-action-btn.cc-cancel { color: var(--cc-error); }
+.cc-action-btn.cc-cancel:hover { background: var(--cc-error-bg); }
+.cc-action-btn.cc-reschedule { color: var(--cc-blue); }
+.cc-action-btn.cc-reschedule:hover { background: #e8f2fb; }
+
+.cc-reschedule-row td {
+  background: #fbfdfd;
+  padding: 14px 8px;
+}
+.cc-reschedule-inline { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
+.cc-reschedule-inline .cc-field { margin-bottom: 0; min-width: 140px; }
+.cc-reschedule-inline .cc-btn { width: auto; padding: 9px 16px; }
+
+/* KPI cards + tabs (Doctor/Admin dashboards) */
+.cc-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin: 4px 0 20px;
+}
+.cc-kpi-card {
+  background: #f8fafb;
+  border: 1px solid var(--cc-border);
+  border-radius: 8px;
+  padding: 14px 12px;
+  text-align: center;
+}
+.cc-kpi-card .cc-kpi-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--cc-teal-dark);
+  line-height: 1.1;
+}
+.cc-kpi-card .cc-kpi-label {
+  font-size: 0.78rem;
+  color: var(--cc-text-muted);
+  margin-top: 4px;
+}
+
+.cc-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--cc-border);
+  margin-bottom: 18px;
+}
+.cc-tab-btn {
+  border: none;
+  background: none;
+  padding: 10px 16px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--cc-text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.cc-tab-btn:hover { color: var(--cc-teal-dark); }
+.cc-tab-btn.cc-active { color: var(--cc-teal-dark); border-bottom-color: var(--cc-teal); }
+.cc-tab-panel.cc-hidden { display: none; }
+
+@media (max-width: 520px) {
+  body { padding: 24px 12px; }
+  .cc-row { flex-direction: column; gap: 0; }
+  .cc-card, .cc-wide { padding: 24px 18px; }
+  .cc-topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .cc-topbar nav {
+    justify-content: flex-start;
+    gap: 10px 14px;
+  }
+}

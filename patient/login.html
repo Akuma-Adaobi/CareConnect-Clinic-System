@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Log in — CareConnect</title>
+<link rel="stylesheet" href="../css/patient.css" />
+</head>
+<body>
+
+  <div class="cc-topband">
+    <div class="cc-logo">CareConnect</div>
+    <div class="cc-tagline">Your clinic, made a little easier to reach.</div>
+  </div>
+
+  <div class="cc-card">
+    <h1>Welcome back</h1>
+    <p class="cc-sub">Log in to view your profile and appointments.</p>
+
+    <svg class="cc-pulse" viewBox="0 0 300 28" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 14 H100 L112 4 L124 24 L136 14 H300" />
+    </svg>
+
+    <div id="formMessage" class="cc-message" role="status" aria-live="polite"></div>
+
+    <form id="loginForm">
+      <div class="cc-field">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" autocomplete="username" required />
+      </div>
+
+      <div class="cc-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required />
+      </div>
+
+      <button type="submit" class="cc-btn" id="submitBtn">Log in</button>
+    </form>
+
+    <p class="cc-alt">New here? <a href="register.html">Create an account</a></p>
+  </div>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/patient-auth.js"></script>
+</body>
+</html>
